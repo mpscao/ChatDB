@@ -4,6 +4,7 @@ from tabulate import tabulate
 from sqlalchemy import create_engine
 import os
 
+# function to view the sample data in each dataset in the table
 def sql_sample_data(connection):
 
     if not connection.open:
@@ -34,7 +35,7 @@ def sql_sample_data(connection):
         print()
 
 
-
+    # give user option to input table they want to view sample data from
     while True:
         selected_table = input("\nEnter name of table you want to view sample data from: ").strip()
 
@@ -43,7 +44,8 @@ def sql_sample_data(connection):
 
         else:
             print("Table input not recognized. Please enter a table name from above")
-
+   
+    # select 5 rows from the table containing sample data
     cursor.execute(f"Select * from `{selected_table}` limit 5")
     sample = cursor.fetchall()
 
