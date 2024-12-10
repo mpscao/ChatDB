@@ -2,10 +2,12 @@
 Learning to Query Database Systems Like ChatGPT.
 
 User guide:
-1.	Navigate to the directory where you saved the project folder.
-2.	Execute “/opt/homebrew/bin/python3.11 /Users/[your own directory]/ChatDB/main.py”
-3.	Follow the instructions given.
-4.	Note: when you upload the extra dataset, please pay attention to the file type. (.csv for SQL and .json for MongoDB)
+1.	Change the password in mysql_main.py to the password used for user’s own MySQL root user
+2.	Navigate to the directory where you saved the project folder. Ex: ‘cd ChatDB’ in terminal if it is in your home directory.
+3.	Execute “/opt/homebrew/bin/python3.11 /Users/[your own directory]/ChatDB/main.py” or “python3 main.py”
+4.	Follow the instructions given.
+5.	Note: when you upload the extra dataset, please pay attention to the file type. (.csv for SQL and .json for MongoDB)
+
 
 Project Structure:
 	The project is divided into two parts “mongodb” and ”mysql”, where “mongodb” handles NLP processing for MongoDB queries and “mysql” handles NLP processing for SQL queries. They are stored in two separate folders called “mongodb” and “mysql”. Each of these folders contains a Python file for connection: “connection.py” and “Upload_SQL.py” which handle the connection to the local databases. In “mongodb”, “queries.py” basically handles nicely displaying columns and sample rows. The “query_parser.py” takes care of NLP processing, query execution, and result display. In “mysql” folder, “SQL_Queries.py” also takes care of processing user input, generating and executing SQL queries, and displaying results.  
