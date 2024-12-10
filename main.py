@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print("6. End Program\n")
 
         choice = input("Enter your choice ('1', '2', '3', '4', '5', '6'): ").strip()
-
+        # select one of 5 options 
         if choice.strip() == '1':
             connection, selected_db = connect_to_SQL()
         
