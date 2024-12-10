@@ -5,9 +5,9 @@ import os
 
 
 
-
 def upload_sql(connection):
 
+    # upload a csv based on file path
     file_path = input("Enter the CSV filename to upload to SQL: ")
 
     if not os.path.isfile(file_path):
@@ -17,10 +17,11 @@ def upload_sql(connection):
     table = os.path.splitext(os.path.basename(file_path))[0]
     #db = 'SQL_Datasets'
     user = 'root'
-    password = 'Dsci-551'
+    password = 'Your_Password'
     host = 'localhost'
     port = 3306
 
+    # connect to the database you want to use in terminal, change password to yourpassword
     connection = pymysql.connect(user = user, password = password, host = host, port = port)
     cursor = connection.cursor()
 
@@ -31,7 +32,7 @@ def upload_sql(connection):
     for i, db in enumerate(databases, start = 1):
         print(f"{i}, {db}")
 
-
+    # enter the database that you want to upload the csv to or create a new one
     while True:
         db_choice = input("\n Enter the name of database you want to upload the CSV to (or type 'New' to create a new database): ").strip()
 
@@ -49,10 +50,11 @@ def upload_sql(connection):
             print("Did not recognize input. Please enter one of the existing databases of 'New'")
             
    
-
+    
     cursor.execute(f"Show tables like '{table}'")
     table_exists = cursor.fetchone() is not None
 
+    # give option for user to replace any older versions of the updated dataset
     if table_exists:
         while True:
             replace = input(f"The table '{table}' already exists. Do you want to replace it? (yes/no): ").strip().lower()
