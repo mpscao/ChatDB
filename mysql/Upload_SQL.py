@@ -21,10 +21,10 @@ def upload_sql(connection):
     # replace any spaces 
     table = os.path.splitext(os.path.basename(file_path))[0].replace(' ', '_')
     #db = 'SQL_Datasets'
-    user = 'root'
-    password = 'Dsci-551'
-    host = 'localhost'
-    port = 3306
+    user = 'username_here'
+    password = 'password_here'
+    host = 'host_here'
+    port = port_here
 
     connection = pymysql.connect(user = user, password = password, host = host, port = port)
     cursor = connection.cursor()
